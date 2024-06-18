@@ -49,18 +49,17 @@ namespace ConvertCurrency
                 $"Нажмите {ButtonEscape}, чтобы выйти из программы.\n" +
                 $"Нажмите {ButtonClear}, чтобы очистить консоль.";
 
-            string commandUser = null;
-
             uint commandUserToConvert = 0;
-            
+
+            bool escapeProgramm = false;
+
             Console.WriteLine(helpMenu);
 
-            while (commandUser != ButtonEscape)
+            while (escapeProgramm == false)
             {
                 Console.WriteLine("Введите команду:");
-                commandUser = Console.ReadLine();
 
-                switch (commandUser)
+                switch (Console.ReadLine())
                 {
                     case ButtonConvertRublesToDollars:
                         Console.WriteLine(convertQuestion);
@@ -192,6 +191,10 @@ namespace ConvertCurrency
 
                     case ButtonClear:
                         Console.Clear();
+                        break;
+
+                    case ButtonEscape:
+                        escapeProgramm = true;
                         break;
                 }
             }
