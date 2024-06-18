@@ -57,7 +57,6 @@ namespace ConvertCurrency
             double convertDollarsToEuro = commandUserToConvert * exchangeRateDollarsToEuro;
             double convertRublesToEuro = commandUserToConvert * exchangeRateRublesToEuro;
 
-
             double remainderEuroToDollars = clientEuro - convertEuroToDollars;
             double remainderDollarsToRubles = clientDollars - convertDollarsToRubles;
             double remainderEuroToRubles = clientEuro - convertEuroToRubles;
