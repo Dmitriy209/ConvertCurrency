@@ -50,19 +50,7 @@ namespace ConvertCurrency
             string commandUser = null;
 
             uint commandUserToConvert = 0;
-
-            double convertEuroToDollars = commandUserToConvert * exchangeRateEuroToDollars;
-            double convertDollarsToRubles = commandUserToConvert * exchangeRateDollarsToRubles;
-            double convertEuroToRubles = commandUserToConvert * exchangeRateEuroToRubles;
-            double convertDollarsToEuro = commandUserToConvert * exchangeRateDollarsToEuro;
-            double convertRublesToEuro = commandUserToConvert * exchangeRateRublesToEuro;
-
-            double remainderEuroToDollars = clientEuro - convertEuroToDollars;
-            double remainderDollarsToRubles = clientDollars - convertDollarsToRubles;
-            double remainderEuroToRubles = clientEuro - convertEuroToRubles;
-            double remainderDollarsToEuro = clientDollars - convertDollarsToEuro;
-            double remainderRublesToEuro = clientRubles - convertRublesToEuro;
-
+            
             Console.WriteLine(helpMenu);
 
             while (commandUser != ButtonEscape)
@@ -97,6 +85,9 @@ namespace ConvertCurrency
                         Console.WriteLine(questionToConvert);
                         commandUserToConvert = Convert.ToUInt32(Console.ReadLine());
 
+                        double convertEuroToDollars = commandUserToConvert * exchangeRateEuroToDollars;
+                        double remainderEuroToDollars = clientEuro - convertEuroToDollars;
+
                         if (remainderEuroToDollars < 0)
                         {
                             Console.WriteLine(notEnoughMoney);
@@ -112,6 +103,9 @@ namespace ConvertCurrency
                     case ButtonConvertDollarsToRubles:
                         Console.WriteLine(questionToConvert);
                         commandUserToConvert = Convert.ToUInt32(Console.ReadLine());
+
+                        double convertDollarsToRubles = commandUserToConvert * exchangeRateDollarsToRubles;
+                        double remainderDollarsToRubles = clientDollars - convertDollarsToRubles;
 
                         if (remainderDollarsToRubles < 0)
                         {
@@ -129,6 +123,9 @@ namespace ConvertCurrency
                         Console.WriteLine(questionToConvert);
                         commandUserToConvert = Convert.ToUInt32(Console.ReadLine());
 
+                        double convertEuroToRubles = commandUserToConvert * exchangeRateEuroToRubles;
+                        double remainderEuroToRubles = clientEuro - convertEuroToRubles;
+
                         if (remainderEuroToRubles < 0)
                         {
                             Console.WriteLine(notEnoughMoney);
@@ -145,6 +142,9 @@ namespace ConvertCurrency
                         Console.WriteLine(questionToConvert);
                         commandUserToConvert = Convert.ToUInt32(Console.ReadLine());
 
+                        double convertDollarsToEuro = commandUserToConvert * exchangeRateDollarsToEuro;
+                        double remainderDollarsToEuro = clientDollars - convertDollarsToEuro;
+
                         if (remainderDollarsToEuro < 0)
                         {
                             Console.WriteLine(notEnoughMoney);
@@ -160,6 +160,9 @@ namespace ConvertCurrency
                     case ButtonConvertRublesToEuro:
                         Console.WriteLine(questionToConvert);
                         commandUserToConvert = Convert.ToUInt32(Console.ReadLine());
+
+                        double convertRublesToEuro = commandUserToConvert * exchangeRateRublesToEuro;
+                        double remainderRublesToEuro = clientRubles - convertRublesToEuro;
 
                         if (remainderRublesToEuro < 0)
                         {
